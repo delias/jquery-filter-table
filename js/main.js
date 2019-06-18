@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll(".gender-filter").forEach(button => {
       button.onclick = () => {
-        // event.preventDefault(e);
         showlist(result.filter(item => item.Sexo === button.dataset.gender));
         return false;
       };
@@ -13,20 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function showlist(list) {
-  // let output = "";
-  document.querySelector("#list").innerHTML = "";
-
+  let output = "";
   list.forEach(item => {
-    const tr = document.createElement("tr");
-    const tdNombre = document.createElement("td");
-    const tdApellido = document.createElement("td");
-    const tdSexo = document.createElement("td");
-    tdNombre.innerHTML = item.Nombres;
-    tdApellido.innerHTML = item.Apellidos;
-    tdSexo.innerHTML = item.Sexo;
-    tr.append(tdNombre);
-    tr.append(tdApellido);
-    tr.append(tdSexo);
-    document.querySelector("#list").append(tr);
+    output += `<tr><td>${item.Nombres}</td><td>${item.Apellidos}</td><td>${
+      item.Sexo
+    }</td></tr>`;
   });
+  document.querySelector("#list").innerHTML = output;
 }
