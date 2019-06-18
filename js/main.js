@@ -13,16 +13,20 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function showlist(list) {
-  let output = "";
+  // let output = "";
+  document.querySelector("#list").innerHTML = "";
+
   list.forEach(item => {
-    output +=
-      "<tr><td>" +
-      item.Nombres +
-      "</td><td>" +
-      item.Apellidos +
-      "</td><td>" +
-      item.Sexo +
-      "</td></tr>";
+    const tr = document.createElement("tr");
+    const tdNombre = document.createElement("td");
+    const tdApellido = document.createElement("td");
+    const tdSexo = document.createElement("td");
+    tdNombre.innerHTML = item.Nombres;
+    tdApellido.innerHTML = item.Apellidos;
+    tdSexo.innerHTML = item.Sexo;
+    tr.append(tdNombre);
+    tr.append(tdApellido);
+    tr.append(tdSexo);
+    document.querySelector("#list").append(tr);
   });
-  document.querySelector("#list").innerHTML = output;
 }
