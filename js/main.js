@@ -8,6 +8,16 @@ document.addEventListener("DOMContentLoaded", () => {
         return false;
       };
     });
+
+    document.querySelector("input").onkeyup = function() {
+      // console.log(this.value);
+      showlist(
+        result.filter(
+          item =>
+            item.Nombres.toLowerCase().indexOf(this.value.toLowerCase()) !== -1
+        )
+      );
+    };
   });
 });
 
