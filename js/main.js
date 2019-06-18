@@ -3,13 +3,15 @@ document.addEventListener("DOMContentLoaded", () => {
     showlist(result);
 
     document.querySelectorAll(".gender-filter").forEach(button => {
-      button.onclick = e => {
-        event.preventDefault();
+      button.onclick = () => {
+        // event.preventDefault(e);
         showlist(result.filter(item => item.Sexo === button.dataset.gender));
+        return false;
       };
     });
   });
 });
+
 function showlist(list) {
   let output = "";
   list.forEach(item => {
