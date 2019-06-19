@@ -2,9 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
   $.getJSON("../public/race.json", function(result) {
     showlist(result);
 
-    document.querySelectorAll(".sexo-filter").forEach(button => {
+    document.querySelectorAll(".sex-filter").forEach(button => {
       button.onclick = () => {
-        showlist(result.filter(item => item.Sexo === button.dataset.sexo));
+        showlist(result.filter(item => item.Sexo === button.dataset.sex));
         return false;
       };
     });
